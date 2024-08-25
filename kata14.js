@@ -16,10 +16,10 @@ function performOperations(arr, operations) {
   operations.forEach(op => {
     // console.log(op.type)
     if (op.type === 'add') {
-      arr.push(op.value)
+      arr = arr.map(n => n + op.value);
     } else if (op.type === 'multiply') {
      arr = arr.map (n => n * op.value )
-    } else if (op.type === 'substract') {
+    } else if (op.type === 'subtract') {
       arr = arr.map(n => n - op.value);
     } else if (op.type === 'divide') {
       arr = arr.map(n => Math.floor(n / op.value)); 
