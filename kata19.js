@@ -6,39 +6,40 @@
 // Sort the Array: Sort the new array in ascending order.
 // Calculate the Average: Compute the average of the numbers in the array.
 // Find the Median: Compute the median value of the array.
-// Find the Mode: Compute the mode of the array. If there are multiple modes, return all of them in ascending order.
+
 
 function arrayManipulations(arr) {
   const noDuplicates = [...new Set(arr)]
 
-//Set converts to an object with with unique valiues
+  //Set converts to an object with with unique valiues
   //... to convert the set object back to an array
 
-
-  const sortedArray = noDuplicates.sort()
-
-
+  const sortedArray = noDuplicates.sort((a, b) => a - b);
 
   const sum = sortedArray.reduce((acc, val) => acc + val, 0)
 
   const average = sum / sortedArray.length
 
-  console.log(sortedArray)
-
-sortedArray.array % 2 === 0 ? 
-console.log("hello") 
-: 
-console.log(
-  Math.ceil(sortedArray.length / 2)
-);
-
-  
+  const median = sortedArray.length % 2 === 0
+    ? (sortedArray[sortedArray.length / 2 - 1] + sortedArray[sortedArray.length / 2]) / 2
+    : sortedArray[Math.floor(sortedArray.length / 2)];
 
 
+  return {
+    arr,
+    sortedArray,
+    sum,
+    average,
+    median
+  }
 
 }
 
-const input = [3, 1, 4, 1, 5, 9, 2, 6, 5, 10, 11];
+
+
+const input = [3, 1, 4, 1, 5, 9, 2, 6, 5];
+// const input = [1, 2, 3, 4];
+
 const result = arrayManipulations(input);
 console.log(result);
 
