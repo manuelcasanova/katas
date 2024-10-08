@@ -21,9 +21,24 @@
 
 function findMissingNumber (array) {
 
+  let xorAll = 0; // XOR for all numbers from 0 to n
+  let xorNums = 0; // XOR for all numbers in the array
   const n = array.length;
 
+    // XOR all numbers from 0 to n
+    for (let i = 0; i <= n; i++) {
+      xorAll ^= i;
+    }
   
+    // XOR all numbers in the array
+    for (let num of array) {
+      xorNums ^= num;
+    }
+  
+// return {xorAll, xorNums}
+
+    // XOR the results of both to get the missing number
+     return xorAll ^ xorNums;
 
 
 }
